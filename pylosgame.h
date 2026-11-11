@@ -125,8 +125,8 @@ struct Game
   private:
   Game() = delete;
   ~Game() noexcept {}
-  friend void boost::checked_delete<>(      Game*);
-  friend void boost::checked_delete<>(const Game*);
+  friend void boost::checked_delete<>(      Game*) noexcept;
+  friend void boost::checked_delete<>(const Game*) noexcept;
 
   boost::shared_ptr<Board> m_board;
   boost::shared_ptr<CurrentMoveState> m_current_move;

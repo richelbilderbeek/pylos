@@ -39,6 +39,7 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 #include "qtpylosinstructionsdialog.h"
 
 #include "qtpylosmaindialog.h"
+#include "qtpylosshowdialog.h"
 #include "qtpylossprites.h"
 #include "qtpyloswidget.h"
 #include "ui_qtpylosmenudialog.h"
@@ -161,14 +162,12 @@ void ribi::pylos::QtPylosMenuDialog::OnAbout()
   a.AddLibrary("QtPylosGameWidget version: " + QtPylosGameWidget::GetVersion());
   a.AddLibrary("pylos::QtSprites version: " + QtSprites::GetVersion());
   a.AddLibrary("QtPylosWidget version: " + QtPylosWidget::GetVersion());
-  QtAboutDialog d(a);
-  this->ShowChild(&d);
+  ShowChildDialog(this, new QtAboutDialog(a));
 }
 
 void ribi::pylos::QtPylosMenuDialog::OnInstructions()
 {
-  QtPylosInstructionsDialog d;
-  this->ShowChild(&d);
+  ShowChildDialog(this, new QtPylosInstructionsDialog);
 }
 
 void ribi::pylos::QtPylosMenuDialog::OnStart()
@@ -183,8 +182,7 @@ void ribi::pylos::QtPylosMenuDialog::OnStart()
   else p->SetColorSchemeRedBlue();
   //Create the game dialog
   //note: p is deleted by DialogMain
-  ribi::pylos::QtPylosMainDialog d(p);
-  this->ShowChild(&d);
+  ShowChildDialog(this, new QtPylosMainDialog(p));
 }
 
 #ifndef NDEBUG

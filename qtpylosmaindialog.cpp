@@ -28,11 +28,12 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 
 #include <boost/make_shared.hpp>
 
-#include <QDesktopWidget>
+#include <QScreen>
 
 #include "pylosgame.h"
 #include "qtpylosgamewidget.h"
 
+#include "qtpylosshowdialog.h"
 #include "qtpyloswondialog.h"
 #include "ui_qtpylosmaindialog.h"
 
@@ -73,7 +74,7 @@ ribi::pylos::QtPylosMainDialog::QtPylosMainDialog(
   this->layout()->addWidget(m_pylos_widget.get()); //Takes ownership if not removed
 
   //Put the dialog in the screen center
-  const QRect screen = QApplication::desktop()->screenGeometry();
+  const QRect screen = QGuiApplication::primaryScreen()->geometry();
   this->setGeometry(
     0,0,256,256);
   this->move( screen.center() - this->rect().center() );
@@ -113,10 +114,10 @@ std::vector<std::string> ribi::pylos::QtPylosMainDialog::GetVersionHistory() noe
 
 void ribi::pylos::QtPylosMainDialog::OnWinner()
 {
-  QtPylosWonDialog d;
-  d.SetWinner(m_pylos_widget->GetPylos()->GetWinner());
-  this->ShowChild(&d);
-  close();
+  auto * const d = new QtPylosWonDialog;
+  d->SetWinner(m_pylos_widget->GetPylos()->GetWinner());
+  // When the 'won' dialog is closed, close this dialog too
+  ShowChildDialog(this, d, [this]() { this->close(); });
 }
 
 #ifndef NDEBUG

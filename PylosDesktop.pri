@@ -10,7 +10,8 @@ HEADERS  += \
     $$PWD/qtpyloswondialog.h \
     $$PWD/qtpylosmenudialog.h \
     $$PWD/qtpylosmaindialog.h \
-    $$PWD/qtpylosinstructionsdialog.h
+    $$PWD/qtpylosinstructionsdialog.h \
+    $$PWD/qtpylosshowdialog.h
 
 
 FORMS += \
