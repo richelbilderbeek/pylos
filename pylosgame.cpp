@@ -5,7 +5,9 @@
 
 #include <algorithm>
 #include <cassert>
+#include <cstdlib>
 #include <iostream>
+#include <random>
 
 #include <boost/numeric/conversion/cast.hpp>
 #include <boost/shared_ptr.hpp>
@@ -185,7 +187,7 @@ ribi::pylos::Winner ribi::pylos::PlayRandomGame(const boost::shared_ptr<Board>& 
       if (p->CanTransfer(c))
       {
         std::vector<pylos::Coordinat> v = pylos::GetAllCoordinats();
-        std::random_shuffle(std::begin(v),std::end(v));
+        std::shuffle(std::begin(v),std::end(v),std::mt19937(std::rand()));
         const std::size_t sz = v.size();
         for (std::size_t i = 0; i!=sz; ++i)
         {
