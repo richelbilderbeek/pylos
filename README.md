@@ -13,4 +13,4 @@ C++ Pylos/Pyraos game.
 
 ## External links
 
- * [Richel Bilderbeek's games](https://github.com/richelbilderbeek/Games)
+* [Richel Bilderbeek's games](https://github.com/richelbilderbeek/Games)
