@@ -32,10 +32,9 @@ env:
   QT_VERSION: 6.11.3
   # Must match the Qt version, see https://doc.qt.io/qt-6/wasm.html
   EMSCRIPTEN_VERSION: 4.0.7
-  # The game uses code from these repositories,
-  # pinned to commits that are known to work
+  # The game uses code from this repository,
+  # pinned to a commit that is known to work
   DOTMATRIX_COMMIT: 9524f9a4e57c31e464f9fca2443ba460aaccd904
-  RIBICLASSES_COMMIT: bbf10cb8e05db9d4dd020e66b9b562d95c75033e
 
 jobs:
   create_zensical_website:
@@ -50,15 +49,12 @@ jobs:
         with:
           python-version: 3.x
 
-      # The project files expect these repositories next to this one
+      # The project files expect this repository next to this one
       - name: Get the other repositories
         run: |
           cd ..
-          for repo in DotMatrix RibiClasses; do
-            git clone https://github.com/richelbilderbeek/$repo
-          done
+          git clone https://github.com/richelbilderbeek/DotMatrix
           git -C DotMatrix checkout "$DOTMATRIX_COMMIT"
-          git -C RibiClasses checkout "$RIBICLASSES_COMMIT"
       - name: Fix DotMatrix for modern Boost
         # Modern Boost declares boost::checked_delete as noexcept,
         # so these friend declarations do not compile anymore.

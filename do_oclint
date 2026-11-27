@@ -13,25 +13,25 @@ echo $h_files
   -- \
   -c -std=c++14 -fPIE \
   -I../ConceptMap \
-  -I../RibiClasses/CppContainer \
-  -I../RibiClasses/CppFileIo \
-  -I../RibiClasses/CppFuzzy_equal_to \
-  -I../RibiClasses/CppGeometry \
-  -I../RibiClasses/CppHelp \
-  -I../RibiClasses/CppPlane \
-  -I../RibiClasses/CppQtAboutDialog \
-  -I../RibiClasses/CppQtArrowItem \
-  -I../RibiClasses/CppQtHideAndShowDialog \
-  -I../RibiClasses/CppQtLeftRightRectItem \
+  -Iribi_classes/CppContainer \
+  -Iribi_classes/CppFileIo \
+  -Iribi_classes/CppFuzzy_equal_to \
+  -Iribi_classes/CppGeometry \
+  -Iribi_classes/CppHelp \
+  -Iribi_classes/CppPlane \
+  -Iribi_classes/CppQtAboutDialog \
+  -Iribi_classes/CppQtArrowItem \
+  -Iribi_classes/CppQtHideAndShowDialog \
+  -Iribi_classes/CppQtLeftRightRectItem \
   -I../QtKeyboardFriendlyGraphicsView \
-  -I../RibiClasses/CppQtImage \
-  -I../RibiClasses/CppQtRoundedEditRectItem \
-  -I../RibiClasses/CppQtRoundedRectItem \
-  -I../RibiClasses/CppQtQuadBezierArrowItem \
-  -I../RibiClasses/CppQtScopedDisable \
-  -I../RibiClasses/CppRibiRegex \
-  -I../RibiClasses/CppTrace \
-  -I../RibiClasses/CppXml \
+  -Iribi_classes/CppQtImage \
+  -Iribi_classes/CppQtRoundedEditRectItem \
+  -Iribi_classes/CppQtRoundedRectItem \
+  -Iribi_classes/CppQtQuadBezierArrowItem \
+  -Iribi_classes/CppQtScopedDisable \
+  -Iribi_classes/CppRibiRegex \
+  -Iribi_classes/CppTrace \
+  -Iribi_classes/CppXml \
   -I../RibiLibraries/Apfloat \
   -I../BoostGraphTutorial/BoostGraphTutorial \
   -I/usr/include/c++/5 \

@@ -1,8 +1,7 @@
 # Pylos, Qt 6 desktop GUI version, also used to build the WebAssembly version
 #
-# Requires these repositories next to this one (see 'download_other_githubs'):
+# Requires this repository next to this one (see 'download_other_githubs'):
 #  - DotMatrix
-#  - RibiClasses
 #
 # Desktop:
 #
@@ -15,16 +14,16 @@
 # Unlike PylosDesktop.pro, this project uses no gcov, gprof, UBSAN
 # or GCC-only flags, as these do not work with Emscripten
 
-include(../RibiClasses/CppAbout/CppAbout.pri)
-include(../RibiClasses/CppFileIo/CppFileIo.pri)
-include(../RibiClasses/CppHelp/CppHelp.pri)
-include(../RibiClasses/CppMenuDialog/CppMenuDialog.pri)
-include(../RibiClasses/CppQtAboutDialog/CppQtAboutDialog.pri)
-include(../RibiClasses/CppQtHideAndShowDialog/CppQtHideAndShowDialog.pri)
-include(../RibiClasses/CppCanvas/CppCanvas.pri)
+include($$PWD/ribi_classes/CppAbout/CppAbout.pri)
+include($$PWD/ribi_classes/CppFileIo/CppFileIo.pri)
+include($$PWD/ribi_classes/CppHelp/CppHelp.pri)
+include($$PWD/ribi_classes/CppMenuDialog/CppMenuDialog.pri)
+include($$PWD/ribi_classes/CppQtAboutDialog/CppQtAboutDialog.pri)
+include($$PWD/ribi_classes/CppQtHideAndShowDialog/CppQtHideAndShowDialog.pri)
+include($$PWD/ribi_classes/CppCanvas/CppCanvas.pri)
 include(../DotMatrix/DotMatrix.pri)
 include(Pylos.pri)
-include(../RibiClasses/CppTextCanvas/CppTextCanvas.pri)
+include($$PWD/ribi_classes/CppTextCanvas/CppTextCanvas.pri)
 include(PylosDesktop.pri)
 include(QtPylos.pri)
 
