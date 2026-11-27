@@ -1,8 +1,5 @@
 # Pylos, Qt 6 desktop GUI version, also used to build the WebAssembly version
 #
-# Requires this repository next to this one (see 'download_other_githubs'):
-#  - DotMatrix
-#
 # Desktop:
 #
 #   qmake6 PylosWebAssembly.pro && make
@@ -21,7 +18,7 @@ include($$PWD/ribi_classes/CppMenuDialog/CppMenuDialog.pri)
 include($$PWD/ribi_classes/CppQtAboutDialog/CppQtAboutDialog.pri)
 include($$PWD/ribi_classes/CppQtHideAndShowDialog/CppQtHideAndShowDialog.pri)
 include($$PWD/ribi_classes/CppCanvas/CppCanvas.pri)
-include(../DotMatrix/DotMatrix.pri)
+include($$PWD/dot_matrix/DotMatrix.pri)
 include(Pylos.pri)
 include($$PWD/ribi_classes/CppTextCanvas/CppTextCanvas.pri)
 include(PylosDesktop.pri)

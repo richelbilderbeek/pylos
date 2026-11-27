@@ -2,18 +2,10 @@
 
 Requires Qt and a C++17 compiler.
 
-The project files include code from other repositories,
-which must be cloned next to this one:
+The code the game uses from other repositories is copied into this one:
 
-- [DotMatrix](https://github.com/richelbilderbeek/DotMatrix)
-- [GSL](https://github.com/Microsoft/GSL)
-- [RibiLibraries](https://github.com/richelbilderbeek/RibiLibraries)
-
-The script `download_other_githubs` clones these.
-
-The code it uses from
-[RibiClasses](https://github.com/richelbilderbeek/RibiClasses)
-is copied into the `ribi_classes` folder.
+- [DotMatrix](https://github.com/richelbilderbeek/DotMatrix), in the `dot_matrix` folder
+- [RibiClasses](https://github.com/richelbilderbeek/RibiClasses), in the `ribi_classes` folder
 
 There are multiple projects:
 
@@ -36,7 +28,7 @@ make
 
 `PylosWebAssembly.pro` builds the version that can be
 [played online](play.md).
-It needs only DotMatrix, the `ribi_classes` folder
+It needs only the `dot_matrix` and `ribi_classes` folders
 and the Boost headers.
 
 Use the `qmake` from a single-threaded Qt for WebAssembly

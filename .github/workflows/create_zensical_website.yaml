@@ -32,9 +32,6 @@ env:
   QT_VERSION: 6.11.3
   # Must match the Qt version, see https://doc.qt.io/qt-6/wasm.html
   EMSCRIPTEN_VERSION: 4.0.7
-  # The game uses code from this repository,
-  # pinned to a commit that is known to work
-  DOTMATRIX_COMMIT: 9524f9a4e57c31e464f9fca2443ba460aaccd904
 
 jobs:
   create_zensical_website:
@@ -48,22 +45,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
-
-      # The project files expect this repository next to this one
-      - name: Get the other repositories
-        run: |
-          cd ..
-          git clone https://github.com/richelbilderbeek/DotMatrix
-          git -C DotMatrix checkout "$DOTMATRIX_COMMIT"
-      - name: Fix DotMatrix for modern Boost
-        # Modern Boost declares boost::checked_delete as noexcept,
-        # so these friend declarations do not compile anymore.
-        # They are not needed, as the destructor is public
-        run: |
-          cd ../DotMatrix
-          grep --quiet "friend void boost::checked_delete" dotmatrixchar.h
-          sed --in-place '/friend void boost::checked_delete<>(.*DotMatrixChar\*);/d' dotmatrixchar.h
-          ! grep --quiet "friend void boost::checked_delete" dotmatrixchar.h
 
       - name: Install Qt
         # WebAssembly Qt also needs a desktop Qt for its host tools
