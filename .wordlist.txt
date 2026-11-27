@@ -12,5 +12,6 @@ Richel
 Richèl
 TestPylos
 WebAssembly
+Zensical
 codecov
 io
